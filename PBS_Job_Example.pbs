@@ -1,0 +1,7 @@
+#!/bin/bash
+#PBS -N SubID
+#PBS -q workq
+
+docker pull nipreps/fmriprep:latest
+
+docker run --rm -i -e DOCKER_VERSION_8395080871=1.13.1 -v /share/inspurStorage/apps/freesurfer/license.txt:/opt/freesurfer/license.txt:ro -v /share/inspurStorage/home1/changxiao/Project/2021_SCZ_Cui/BIDS_Sort_Session/:/data:ro -v /share/inspurStorage/home1/changxiao/Project/2021_SCZ_Cui/derivatives_fmriprep:/out -v /share/inspurStorage/home1/changxiao/Project/2021_SCZ_Cui/derivatives_fmriprep/tmp:/scratch poldracklab/fmriprep:20.1.3 /data /out participant --skip_bids_validation --participant-label SubID --nthreads 10 --omp-nthreads 10 --cifti-output --ignore fieldmaps -w /scratch --output-spaces MNI152NLin6Asym:res-2 fsaverage5
