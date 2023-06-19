@@ -14,7 +14,7 @@ S_FS_table.m
 check freesurfer output using [ENIGMA-QC methods](https://enigma.ini.usc.edu/protocols/imaging-protocols/)
 
 
-## 4. Run fitlme model to compare group and group-by-wave effects
+## 4. Run fitlme model to calculate group and group-by-wave effects
 ```
 S_FS_region_fitlme.m  
 S_FS_region_fitlme_subgroup.m 
